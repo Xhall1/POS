@@ -1,5 +1,10 @@
 <?php
 
+use Mike42\Escpos\Printer;
+use Mike42\Escpos\EscposImage;
+use Mike42\Escpos\PrintConnectors\FilePrintConnector;
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+
 class ControladorVentas{
 
 	/*=============================================
@@ -119,27 +124,125 @@ class ControladorVentas{
 			$respuesta = ModeloVentas::mdlIngresarVenta($tabla, $datos);
 
 			if($respuesta == "ok"){
+				
+				// $impresora = "epson20";
 
-				echo'<script>
+				// $conector = new WindowsPrintConnector($impresora);
 
-				localStorage.removeItem("rango");
+				// $imprimir = new Printer($conector);
 
-				swal({
-					  type: "success",
-					  title: "La venta ha sido guardada correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-								if (result.value) {
+				// $imprimir -> text("Hola Mundo"."\n");
 
-								window.location = "ventas";
+				// $imprimir -> cut();
 
-								}
-							})
+				// $imprimir -> close();
 
-				</script>';
+				$impresora = "epson20";
 
+				$conector = new WindowsPrintConnector($impresora);
+
+				$printer = new Printer($conector);
+
+				$printer -> setJustification(Printer::JUSTIFY_CENTER);
+
+				$printer -> text(date("Y-m-d H:i:s")."\n");//Fecha de la factura
+
+				$printer -> feed(1); //Alimentamos el papel 1 vez*/
+
+				$printer -> text("Inventory System"."\n");//Cambiar Nombre de la empresa
+
+				$printer -> text("NIT: 71.759.963-9"."\n");//Cambiar Nit de la empresa
+
+				$printer -> text("Dirección: Calle 44B 92-11"."\n");//Cambiar Dirección de la empresa
+
+				$printer -> text("Teléfono: 300 786 52 49"."\n");//Cambiar Teléfono de la empresa
+
+				$printer -> text("FACTURA N.".$_POST["nuevaVenta"]."\n");//Cambiar Número de factura
+
+				$printer -> feed(1); //Alimentamos el papel 1 vez*/
+
+				$printer -> text("Cliente: ".$traerCliente["nombre"]."\n");//Nombre del cliente
+
+				$tablaVendedor = "usuarios";
+				$item = "id";
+				$valor = $_POST["idVendedor"];
+
+				$traerVendedor = ModeloUsuarios::mdlMostrarUsuarios($tablaVendedor, $item, $valor);
+
+				$printer -> text("Vendedor: ".$traerVendedor["nombre"]."\n");//Nombre del vendedor
+
+				$printer -> feed(1); //Alimentamos el papel 1 vez*/
+
+
+				// Lista de productos
+				foreach ($listaProductos as $key => $value) {
+
+					$printer->setJustification(Printer::JUSTIFY_LEFT);
+
+					$printer->text($value["descripcion"]."\n");//Nombre del producto
+
+					$printer->setJustification(Printer::JUSTIFY_RIGHT);
+
+					$printer->text("$ ".number_format($value["precio"],2)." Und x ".$value["cantidad"]." = $ ".number_format($value["total"],2)."\n");
+
+				}
+
+				$printer -> feed(1); //Alimentamos el papel 1 vez*/			
+				
+				$printer->text("NETO: $ ".number_format($_POST["nuevoPrecioNeto"],2)."\n"); //ahora va el neto
+
+				$printer->text("IMPUESTO: $ ".number_format($_POST["nuevoPrecioImpuesto"],2)."\n"); //ahora va el impuesto
+
+				$printer->text("--------\n");
+
+				$printer->text("TOTAL: $ ".number_format($_POST["totalVenta"],2)."\n"); //ahora va el total
+
+				$printer -> feed(1); //Alimentamos el papel 1 vez*/	
+
+				$printer->text("Muchas gracias por su compra"); //Podemos poner también un pie de página
+
+				$printer -> feed(3); //Alimentamos el papel 3 veces*/
+
+				$printer -> cut(); //Cortamos el papel, si la impresora tiene la opción
+
+				$printer -> pulse(); //Por medio de la impresora mandamos un pulso, es útil cuando hay cajón moneder
+
+				$printer -> close();
 			}
+			// if($respuesta == "ok"){
+			// 	// $impresora = "epson20"; // NOTA: El nombre de la impresora debe ser el mismo que se encuentra en el panel de control de windows
+
+			// 	// $conector = new WindowsPrintConnector($impresora);
+
+			// 	// $imprimir = new Printer($conector);
+
+			// 	// $imprimir -> text("Hola Mundo"."\n");
+
+			// 	// $imprimir -> cut();
+
+			// 	// $imprimir -> close();
+
+
+			// 	echo'<script>
+
+			// 	localStorage.removeItem("rango");
+
+			// 	swal({
+			// 		  type: "success",
+			// 		  title: "La venta ha sido guardada correctamente",
+			// 		  showConfirmButton: true,
+			// 		  confirmButtonText: "Cerrar"
+			// 		  }).then(function(result){
+			// 					if (result.value) {
+
+			// 					window.location = "ventas";
+
+			// 					}
+			// 				})
+
+			// 	</script>';
+
+			// }
 
 		}
 

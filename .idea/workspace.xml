@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db82d3ce-1986-43eb-83fa-8af529fdeaf2" name="Changes" comment="" />
+    <list default="true" id="db82d3ce-1986-43eb-83fa-8af529fdeaf2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controladores/clientes.controlador.php" beforeDir="false" afterPath="$PROJECT_DIR$/controladores/clientes.controlador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelos/clientes.modelo.php" beforeDir="false" afterPath="$PROJECT_DIR$/modelos/clientes.modelo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vistas/modulos/clientes.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/modulos/clientes.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vistas/modulos/clientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/modulos/clientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vistas/modulos/crear-venta.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/modulos/crear-venta.html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vistas/modulos/crear-venta.php" beforeDir="false" afterPath="$PROJECT_DIR$/vistas/modulos/crear-venta.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +37,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;&lt;unknown&gt;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/POS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -65,6 +73,8 @@
       <workItem from="1741455885522" duration="2716000" />
       <workItem from="1741466620408" duration="7703000" />
       <workItem from="1741478459094" duration="4040000" />
+      <workItem from="1741628965651" duration="1551000" />
+      <workItem from="1742232592242" duration="3634000" />
     </task>
     <servers />
   </component>

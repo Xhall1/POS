@@ -400,11 +400,12 @@ MODAL AGREGAR CLIENTE
             <div class="form-group">
               
               <div class="input-group">
-              
+
+                  <!--
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
 
                 <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
-
+                -->
               </div>
 
             </div>
@@ -428,11 +429,12 @@ MODAL AGREGAR CLIENTE
             <div class="form-group">
               
               <div class="input-group">
-              
+
+                  <!--
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
-
+    -->
               </div>
 
             </div>
@@ -442,11 +444,11 @@ MODAL AGREGAR CLIENTE
             <div class="form-group">
               
               <div class="input-group">
-              
+              <!--
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
-
+    -->
               </div>
 
             </div>
